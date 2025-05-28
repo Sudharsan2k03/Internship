@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JSON Example Task</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    input {
+      margin: 5px;
+      padding: 5px;
+    }
+    button {
+      padding: 8px 12px;
+      margin: 10px 0;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+    }
+    .container{
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h2>JSON Task: Convert Input to JSON</h2>
+
+  <label>Name: </label>
+  <input type="text" id="name"><br>
+
+  <label>Age: </label>
+  <input type="number" id="age"><br>
+
+  <label>Email: </label>
+  <input type="email" id="email"><br>
+
+  <button onclick="convertToJSON()">Convert to JSON</button>
+
+  <h3>JSON String:</h3>
+  <pre id="jsonOutput"></pre>
+
+  <h3>Parsed Object:</h3>
+  <pre id="parsedOutput"></pre>
+  </div>
+  <script>
+    function convertToJSON() {
+      // 1. Get input values
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const email = document.getElementById("email").value;
+
+      // 2. Create JS object
+      const person = {
+        name: name,
+        age: parseInt(age),
+        email: email
+      };
+
+      // 3. Convert JS object to JSON string
+      const jsonString = JSON.stringify(person);
+
+      // 4. Display JSON string
+      document.getElementById("jsonOutput").textContent = jsonString;
+
+      // 5. Parse JSON string back to object
+      const parsed = JSON.parse(jsonString);
+
+      // 6. Display parsed data
+      document.getElementById("parsedOutput").textContent = 
+        `Name: ${parsed.name}\nAge: ${parsed.age}\nEmail: ${parsed.email}`;
+    }
+  </script>
+
+</body>
+</html>

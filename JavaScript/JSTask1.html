@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Task 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .container{
+            text-align: center;
+            margin-top: 30px;
+            font-size: 30px;
+        }
+        .h1{
+            font-size: 30px;
+            color: blue;
+            margin-bottom: 10px;
+        }
+        #p1{
+            font-size: 18px;
+        }
+        #p2{
+            font-size: 18px;
+        }
+        button{
+            font-size: 30px;
+            margin-left: 170px;
+            padding: 10px;
+            border-radius: 14px;
+            color: white;
+            background-color:brown;
+            cursor: pointer;
+        }
+        #result1{
+            color: green;
+            font-size: 30px;
+        }
+        #result2{
+            color: green;
+            font-size: 30px;
+        }
+        #result3{
+            color: green;
+            font-size: 30px;
+        }
+        #result4{
+            color: green;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1 class="Diplay-1">Simple Calculator</h1>
+    <label for="" class="pro1">Enter first number</label>
+    <input type="number" id="p1">     <br> <br>
+    <label for="" class="pro2">Enter second number</label>
+    <input type="number" id="p2">  <br> <br>
+    <button onclick="Total()">Result</button>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+    <p id="result4"></p>
+    </div>
+    <script>
+        function Total(){
+            let p1 = parseFloat(document.getElementById("p1").value);
+            let p2 = parseFloat(document.getElementById("p2").value);
+            let Total1= p1+p2;
+            let Total2 = p1-p2;
+            let Total3 = p1*p2;
+            let Total4 = p1/p2;
+            document.getElementById("result1").innerText=`Sum of two numbers is: ${Total1}`;
+            document.getElementById("result2").innerText=`Difference of two numbers is: ${Total2}`;
+            document.getElementById("result3").innerText=`Multiplication of two numbers is: ${Total3}`;
+            document.getElementById("result4").innerText=`Division of two numbers is: ${Total4}`;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
