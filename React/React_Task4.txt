@@ -1,0 +1,63 @@
+import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+function App() {
+  const [name, setName] = useState('');
+  const [age, setAge] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = () => {
+    if (name && age) {
+      setSubmitted(true);
+    } else {
+      alert("Please enter both Name and Age");
+    }
+  };
+
+  const isEligible = age >= 18;
+
+  return (
+    <div className="container mt-5 text-center">
+      <h2 className="mb-4">Eligibility Checker</h2>
+
+      <input 
+        type="text"
+        className="form-control w-50 mx-auto mb-3"
+        placeholder="Enter your name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <input 
+        type="number"
+        className="form-control w-50 mx-auto mb-3"
+        placeholder="Enter your age"
+        value={age}
+        onChange={(e) => setAge(e.target.value)}
+      />
+
+      <button className="btn btn-primary mb-4" onClick={handleSubmit}>
+        Check Eligibility
+      </button>
+
+      {submitted && (
+        <div className="card p-4 bg-light shadow">
+          <h4>Hello, {name} </h4>
+          {isEligible ? (
+            <>
+              <p>You are eligible to Vote</p>
+              <p>You are eligible for Driving License</p>
+            </>
+          ) : (
+            <>
+              <p>You are not eligible to Vote</p>
+              <p>You are not eligible for Driving License</p>
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;
