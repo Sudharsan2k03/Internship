@@ -1,0 +1,50 @@
+import ThemeToggler from './ThemeToggler';
+
+function App() {
+  return <ThemeToggler />;
+}
+
+export default App;
+
+import { useState } from 'react';
+
+function ThemeToggler() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode); // toggle the mode
+  };
+
+  const themeStyle = {
+    backgroundColor: darkMode ? '#1a1a1a' : '#f2f2f2',
+    color: darkMode ? 'white' : 'black',
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    transition: 'all 0.3s ease',
+  };
+
+  const buttonStyle = {
+    padding: '10px 20px',
+    fontSize: '16px',
+    marginTop: '20px',
+    cursor: 'pointer',
+    borderRadius: '8px',
+    border: 'none',
+    backgroundColor: darkMode ? '#ffffff' : '#333333',
+    color: darkMode ? '#000000' : '#ffffff',
+  };
+
+  return (
+    <div style={themeStyle}>
+      <h1>{darkMode ? '🌙 Good Night' : '☀️ Good Morning'}</h1>
+      <button onClick={toggleTheme} style={buttonStyle}>
+        Switch to {darkMode ? 'Day' : 'Night'} Mode
+      </button>
+    </div>
+  );
+}
+
+export default ThemeToggler;
